@@ -3,13 +3,13 @@ import nl.novi.dtoopdracht.dtos.genreDto.GenreRequestDto;
 import nl.novi.dtoopdracht.dtos.genreDto.GenreResponseDto;
 import nl.novi.dtoopdracht.entities.GenreEntity;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 
 @Component
 public class GenreDtoMapper implements DtoMapper<GenreResponseDto, GenreRequestDto, GenreEntity>  {
 
+    // gaat over de RESPONSE
     @Override
     public GenreResponseDto mapToDto(GenreEntity genre) {
         if (genre == null) {
@@ -32,6 +32,8 @@ public class GenreDtoMapper implements DtoMapper<GenreResponseDto, GenreRequestD
         return result;
     }
 
+    // gaat over de REQUEST
+    // alleen de velden in de GenreRequestDto! Niet alle velden van de ResponseDto, anders kan de gebruiker ongeautoriseerde data lezen/wijzigen
     @Override
     public GenreEntity mapToEntity(GenreRequestDto genreRequestDto) {
         GenreEntity entity = new GenreEntity();

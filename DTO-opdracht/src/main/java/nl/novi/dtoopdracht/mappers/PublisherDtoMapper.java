@@ -7,8 +7,9 @@ import nl.novi.dtoopdracht.dtos.publisherDto.PublisherResponseDto;
 import nl.novi.dtoopdracht.dtos.publisherDto.PublisherRequestDto;
 
 @Component
-public class PublisherDtoMapper implements DtoMapper<PublisherResponseDto, PublisherRequestDto, PublisherEntity>  {
+public class PublisherDtoMapper implements DtoMapper<PublisherResponseDto, PublisherRequestDto, PublisherEntity> {
 
+    // gaat over de RESPONSE
     @Override
     public PublisherResponseDto mapToDto(PublisherEntity publisher) {
         if (publisher == null) {
@@ -31,6 +32,8 @@ public class PublisherDtoMapper implements DtoMapper<PublisherResponseDto, Publi
         return result;
     }
 
+    // gaat over de REQUEST
+    // alleen de velden in de PublisherRequestDto! Niet alle velden van de ResponseDto, anders kan de gebruiker ongeautoriseerde data lezen/wijzigen
     @Override
     public PublisherEntity mapToEntity(PublisherRequestDto publisherRequestDto) {
         PublisherEntity entity = new PublisherEntity();
