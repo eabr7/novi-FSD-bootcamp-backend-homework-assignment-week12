@@ -1,7 +1,7 @@
-package nl.novi.dtoopdracht.dto.PublisherDTO;
+package nl.novi.dtoopdracht.dtos.publisherDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class PublisherResponseDTO {
+public class PublisherResponseDto {
 
     // fields
     @JsonProperty("publisher_id")

@@ -1,8 +1,8 @@
-package nl.novi.dtoopdracht.dto.GenreDTO;
+package nl.novi.dtoopdracht.dtos.genreDto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public class GenreRequestDTO {
+public class GenreRequestDto {
 
     // fields
     @NotBlank(message = "De naam mag niet leeg zijn.")

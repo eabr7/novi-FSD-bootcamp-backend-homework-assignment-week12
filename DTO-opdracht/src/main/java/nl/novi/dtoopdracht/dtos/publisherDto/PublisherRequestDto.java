@@ -1,8 +1,8 @@
-package nl.novi.dtoopdracht.dto.PublisherDTO;
+package nl.novi.dtoopdracht.dtos.publisherDto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public class PublisherRequestDTO {
+public class PublisherRequestDto {
 
     // fields
     @NotBlank(message = "De naam mag niet leeg zijn.")

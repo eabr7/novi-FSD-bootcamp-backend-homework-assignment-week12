@@ -1,7 +1,7 @@
-package nl.novi.dtoopdracht.dto.GenreDTO;
+package nl.novi.dtoopdracht.dtos.genreDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class GenreResponseDTO {
+public class GenreResponseDto {
 
     // fields
     @JsonProperty("genre_id")
