@@ -55,8 +55,8 @@ public class GenreService {
         }
 
         GenreEntity genreEntity = genreDtoMapper.mapToEntity(genreDto);
-        genreEntity = genreRepository.save(genreEntity);
-        return genreDtoMapper.mapToDto(genreEntity);
+        GenreEntity savedGenreEntity = genreRepository.save(genreEntity);
+        return genreDtoMapper.mapToDto(savedGenreEntity);
     }
 
     // PUT-REQUEST / UPDATE
