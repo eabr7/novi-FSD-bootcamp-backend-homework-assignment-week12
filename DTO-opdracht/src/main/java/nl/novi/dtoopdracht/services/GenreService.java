@@ -1,5 +1,4 @@
 package nl.novi.dtoopdracht.services;
-
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import nl.novi.dtoopdracht.dtos.genreDto.GenreRequestDto;
@@ -8,7 +7,6 @@ import nl.novi.dtoopdracht.mappers.GenreDtoMapper;
 import nl.novi.dtoopdracht.entities.GenreEntity;
 import nl.novi.dtoopdracht.repositories.GenreRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -26,21 +24,27 @@ public class GenreService {
         this.genreDtoMapper = genreDtoMapper;
     }
 
+    // GET-REQUEST / READ
     // findAll method for all genres in a genre list
-    public List<GenreEntity> findAllGenres() {
-        return genreRepository.findAll();
+    public List<GenreResponseDto> findAllGenres() {
+        List<GenreEntity> genres = genreRepository.findAll();
+        return genreDtoMapper.mapToDto(genres);
     }
 
     // findById method to find one specific genre
-    public GenreEntity findGenreById(Long id) {
+    public GenreResponseDto findGenreById(Long id) {
         Optional<GenreEntity> optionalGenre = genreRepository.findById(id);
-        if  (optionalGenre.isPresent()) {
-            return optionalGenre.get();
-        } else {
+
+        if (optionalGenre.isEmpty()) {
             throw new EntityNotFoundException("Genre not found");
         }
+
+        GenreEntity genreEntity = optionalGenre.get();
+        return genreDtoMapper.mapToDto(genreEntity);
     }
 
+
+    // POST-REQUEST / CREATE
     // create method to create a new genre
     @Transactional
     public GenreResponseDto createGenre(GenreRequestDto genreDto) {
@@ -55,24 +59,41 @@ public class GenreService {
         return genreDtoMapper.mapToDto(genreEntity);
     }
 
-
+    // PUT-REQUEST / UPDATE
     // update method to change one specific genre
     @Transactional
-    public GenreEntity updateGenre (long id, GenreEntity input) {
-        GenreEntity updatedGenre = findGenreById(id);
-        if  (updatedGenre != null) {
-            updatedGenre.setName(input.getName());
-            updatedGenre.setDescription(input.getDescription());
-            return  genreRepository.save(updatedGenre);
-        } else {
+    public GenreResponseDto updateGenre(Long id, GenreRequestDto genreDto) {
+
+        if (genreDto == null) {
+            throw new IllegalArgumentException("GenreRequestDto mag niet null zijn");
+        }
+
+        Optional<GenreEntity> optionalGenre = genreRepository.findById(id);
+
+        if (optionalGenre.isEmpty()) {
             throw new EntityNotFoundException("Genre not found");
         }
+
+        GenreEntity existingGenre = optionalGenre.get();
+        existingGenre.setName(genreDto.getName());
+        existingGenre.setDescription(genreDto.getDescription());
+
+        GenreEntity updatedGenre = genreRepository.save(existingGenre);
+        return genreDtoMapper.mapToDto(updatedGenre);
     }
 
+    // DELETE-REQUEST / DELETE
     // delete method to delete one specific genre
     @Transactional
-    public void deleteGenre (long id) {
-        genreRepository.deleteById(id);
+    public void deleteGenre(Long id) {
+
+        Optional<GenreEntity> optionalGenre = genreRepository.findById(id);
+
+        if (optionalGenre.isEmpty()) {
+            throw new EntityNotFoundException("Genre not found");
+        }
+
+        genreRepository.delete(optionalGenre.get());
     }
 
 }

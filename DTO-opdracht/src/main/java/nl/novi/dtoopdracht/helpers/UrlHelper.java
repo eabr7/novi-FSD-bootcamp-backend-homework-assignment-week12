@@ -14,7 +14,6 @@ public class UrlHelper {
         this.request = request;
     }
 
-
     public  String getCurrentUrlString() {
         return request.getRequestURL().toString();
     }
