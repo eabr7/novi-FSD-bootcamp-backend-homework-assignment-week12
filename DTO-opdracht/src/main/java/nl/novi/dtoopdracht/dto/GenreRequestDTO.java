@@ -3,11 +3,11 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
 public class GenreRequestDTO {
-    @NotBlank(message = "De naam van de order mag niet leeg zijn.")
-    @Size(max = 100, min = 2, message = "De naam van de order mag niet minder dan 2 en niet meer dan 100 karakters bevatten.")
+    @NotBlank(message = "De naam mag niet leeg zijn.")
+    @Size(max = 100, min = 2, message = "De naam mag niet minder dan 2 en niet meer dan 100 karakters bevatten.")
     private String name;
 
-    @Size(max = 250, message = "De beschrijving van de order mag niet meer dan 250 karakters bevatten")
+    @Size(max = 250, message = "De beschrijving mag niet meer dan 250 karakters bevatten")
     private String description;
 
     public String getName() {
