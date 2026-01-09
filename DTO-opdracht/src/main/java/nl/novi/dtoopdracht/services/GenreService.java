@@ -2,6 +2,9 @@ package nl.novi.dtoopdracht.services;
 
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
+import nl.novi.dtoopdracht.dtos.genreDto.GenreRequestDto;
+import nl.novi.dtoopdracht.dtos.genreDto.GenreResponseDto;
+import nl.novi.dtoopdracht.mappers.GenreDtoMapper;
 import nl.novi.dtoopdracht.entities.GenreEntity;
 import nl.novi.dtoopdracht.repositories.GenreRepository;
 import org.springframework.stereotype.Service;
@@ -15,10 +18,12 @@ public class GenreService {
 
     // variables
     private final GenreRepository genreRepository;
+    private final GenreDtoMapper genreDtoMapper;
 
     // constructor
-    public GenreService(GenreRepository genreRepository) {
+    public GenreService(GenreRepository genreRepository, GenreDtoMapper genreDtoMapper) {
         this.genreRepository = genreRepository;
+        this.genreDtoMapper = genreDtoMapper;
     }
 
     // findAll method for all genres in a genre list
@@ -38,9 +43,18 @@ public class GenreService {
 
     // create method to create a new genre
     @Transactional
-    public GenreEntity createGenre (GenreEntity input) {
-        return genreRepository.save(input);
+    public GenreResponseDto createGenre(GenreRequestDto genreDto) {
+
+        // met null-check
+        if (genreDto == null) {
+            throw new IllegalArgumentException("GenreRequestDto mag niet null zijn");
+        }
+
+        GenreEntity genreEntity = genreDtoMapper.mapToEntity(genreDto);
+        genreEntity = genreRepository.save(genreEntity);
+        return genreDtoMapper.mapToDto(genreEntity);
     }
+
 
     // update method to change one specific genre
     @Transactional
