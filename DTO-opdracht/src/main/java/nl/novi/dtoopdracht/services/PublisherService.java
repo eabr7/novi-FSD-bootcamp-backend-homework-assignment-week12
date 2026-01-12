@@ -95,3 +95,7 @@ public class PublisherService {
     }
 
 }
+
+// Verbeterpunten:
+// Centraliseer herhaalde logica (zoals getGenreEntity)
+// Gebruik eigen exceptions, geen JPA-exceptions
