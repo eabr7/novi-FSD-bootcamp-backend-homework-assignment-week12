@@ -38,14 +38,14 @@ public class PublisherController {
 
     // POST
     @PostMapping
-    public ResponseEntity<PublisherResponseDto> createPublisher(@RequestBody PublisherRequestDto publisherInput) {
+    public ResponseEntity<PublisherResponseDto> createPublisher(@RequestBody @Valid PublisherRequestDto publisherInput) {
         PublisherResponseDto newPublisher = publisherService.createPublisher(publisherInput);
         return ResponseEntity.created(urlHelper.getCurrentUrlWithId(newPublisher.getId())).body(newPublisher);
     }
 
     // PUT
     @PutMapping("/{id}")
-    public ResponseEntity<PublisherResponseDto> updatePublisherById(@PathVariable Long id, @RequestBody PublisherRequestDto publisherInput) {
+    public ResponseEntity<PublisherResponseDto> updatePublisherById(@PathVariable Long id, @RequestBody @Valid PublisherRequestDto publisherInput) {
         PublisherResponseDto updatedPublisher = publisherService.updatePublisher(id, publisherInput);
         return new ResponseEntity<>(updatedPublisher, HttpStatus.OK);
 

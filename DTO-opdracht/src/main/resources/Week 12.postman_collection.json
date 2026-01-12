@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "f63de172-56b0-41eb-b144-4cfc196f41e3",
-		"name": "opdracht week 11",
+		"_postman_id": "2a9a55ee-2b22-4f22-a579-62baa019df09",
+		"name": "Week 12",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "48231218"
 	},
@@ -226,7 +226,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:8080/publishers/3",
+					"raw": "http://localhost:8080/publishers/4",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -234,7 +234,7 @@
 					"port": "8080",
 					"path": [
 						"publishers",
-						"3"
+						"4"
 					]
 				}
 			},
