@@ -40,15 +40,15 @@ public class GenreController {
 
     // POST
     @PostMapping
-    public ResponseEntity<GenreResponseDto> createGenre(@RequestBody @Valid GenreRequestDto genre) {
-        GenreResponseDto newGenre = genreService.createGenre(genre);
+    public ResponseEntity<GenreResponseDto> createGenre(@RequestBody @Valid GenreRequestDto genreInput) {
+        GenreResponseDto newGenre = genreService.createGenre(genreInput);
         return ResponseEntity.created(urlHelper.getCurrentUrlWithId(newGenre.getId())).body(newGenre);
     }
 
     // PUT
     @PutMapping("/{id}")
-    public ResponseEntity<GenreResponseDto> updateGenre(@PathVariable Long id, @RequestBody @Valid GenreRequestDto genre) {
-        GenreResponseDto updatedGenre = genreService.updateGenre(id, genre);
+    public ResponseEntity<GenreResponseDto> updateGenre(@PathVariable Long id, @RequestBody @Valid GenreRequestDto genreInput) {
+        GenreResponseDto updatedGenre = genreService.updateGenre(id, genreInput);
         return new ResponseEntity<>(updatedGenre, HttpStatus.OK);
     }
 
