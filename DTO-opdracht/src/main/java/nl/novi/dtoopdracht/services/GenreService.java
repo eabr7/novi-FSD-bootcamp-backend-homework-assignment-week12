@@ -47,14 +47,14 @@ public class GenreService {
     // POST-REQUEST / CREATE
     // create method to create a new genre
     @Transactional
-    public GenreResponseDto createGenre(GenreRequestDto genreDto) {
+    public GenreResponseDto createGenre(GenreRequestDto genreRequestDto) {
 
         // met null-check
-        if (genreDto == null) {
+        if (genreRequestDto == null) {
             throw new IllegalArgumentException("GenreRequestDto mag niet null zijn");
         }
 
-        GenreEntity genreEntity = genreDtoMapper.mapToEntity(genreDto);
+        GenreEntity genreEntity = genreDtoMapper.mapToEntity(genreRequestDto);
         GenreEntity savedGenreEntity = genreRepository.save(genreEntity);
         return genreDtoMapper.mapToDto(savedGenreEntity);
     }
@@ -62,9 +62,9 @@ public class GenreService {
     // PUT-REQUEST / UPDATE
     // update method to change one specific genre
     @Transactional
-    public GenreResponseDto updateGenre(Long id, GenreRequestDto genreDto) {
+    public GenreResponseDto updateGenre(Long id, GenreRequestDto genreRequestDto) {
 
-        if (genreDto == null) {
+        if (genreRequestDto == null) {
             throw new IllegalArgumentException("GenreRequestDto mag niet null zijn");
         }
 
@@ -75,8 +75,8 @@ public class GenreService {
         }
 
         GenreEntity existingGenre = optionalGenre.get();
-        existingGenre.setName(genreDto.getName());
-        existingGenre.setDescription(genreDto.getDescription());
+        existingGenre.setName(genreRequestDto.getName());
+        existingGenre.setDescription(genreRequestDto.getDescription());
 
         GenreEntity updatedGenre = genreRepository.save(existingGenre);
         return genreDtoMapper.mapToDto(updatedGenre);
