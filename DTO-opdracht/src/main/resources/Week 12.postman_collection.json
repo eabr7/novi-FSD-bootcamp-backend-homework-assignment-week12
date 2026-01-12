@@ -38,6 +38,38 @@
 			"response": []
 		},
 		{
+			"name": "Get one genre",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/genres/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genres",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get publishers",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -58,6 +90,33 @@
 					"port": "8080",
 					"path": [
 						"publishers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get one publisher",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/publishers/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"publishers",
+						"2"
 					]
 				}
 			},
@@ -92,6 +151,118 @@
 			"response": []
 		},
 		{
+			"name": "Post genre Invalid input (description > 250 characters)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Latin\", \"description\":\"sjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdf\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/genres",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genres"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post genre Invalid input (name < 2 characters)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"L\", \"description\":\"Latin muziek\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/genres",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genres"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post genre Invalid input (name > 100 characters)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Ldsflkdsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdfsjfldskfjdslfkjdsflkdjsfldksjfdlskfjdslkfjdslfkjsdlfkjsdlfkjsdflkdsjfldksjflsdkfjsldkfjdlskfjdslkfjdslkfjdslfkjslfkjslfkjdslkfjsdflkjdsflkjdsflkdsjflkdsjfsldkfjdslkfjdslfkjdsflkdsjfdslkfjsdflksdjflkdsfjsldkfjsdlkfjdsflksdjflksdfjdslkfjdslkfjsdlfkjsdflksdjflksdjflksdfjlsdkfjdlskfjsdlkfjsdlkfjsdlkfjdslkfjdslkfjsldfkjdslkfjdslfkdjsflkdsjfsldkfjlsdkfjdslkfjlskdfjsldkfjsldkfjsldkfjsdlkfjsdlkfjsdlkfjsdlfkjsdflkjsdflksdjflskdjfsldkfjsdlkfjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdflkjsdf\", \"description\":\"Latin muziek\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/genres",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genres"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post genre Invalid input (no name)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"\", \"description\":\"Latin muziek\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/genres",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genres"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Post publisher",
 			"request": {
 				"auth": {
@@ -102,6 +273,68 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"name\":\"Mighty Music Studio\", \"address\":\"Bergstraat 45\", \"contactDetails\":\"info@mms.com\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/publishers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"publishers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post publisher Invalid input (no name)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"\", \"address\":\"Bergstraat 45\", \"contactDetails\":\"info@mms.com\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/publishers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"publishers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post publisher Invalid input (name > 50 characters)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"\", \"address\":\"Bergstraat 45\", \"contactDetails\":\"info@mms.com\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -155,6 +388,70 @@
 			"response": []
 		},
 		{
+			"name": "Put publisher Invalid input (name > 50 characters)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Disney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney StudioDisney Studio\", \"address\":\"laanstraat 355\", \"contactDetails\":\"info@disneystudio.com\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/publishers/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"publishers",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put publisher Invalid input (no name)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"\", \"address\":\"laanstraat 355\", \"contactDetails\":\"info@disneystudio.com\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/publishers/4",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"publishers",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Put genre",
 			"request": {
 				"auth": {
@@ -165,6 +462,134 @@
 				"body": {
 					"mode": "raw",
 					"raw": "{\n    \"name\":\"Indie\", \"description\":\"Indie muziek\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/genres/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genres",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put genre Invalid input (description > 250 characters)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Indie\", \"description\":\"Indie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekkIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie mkIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie mkIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie mkIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie mkIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie mkIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie mkIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie mkIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie muziekIndie m\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/genres/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genres",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put genre Invalid input (no name)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Indie\", \"description\":\"Indie muziek\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/genres/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genres",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put genre Invalid input (name < 2 characters)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"I\", \"description\":\"Indie muziek\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/genres/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"genres",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put genre Invalid input (name > 100 characters)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Isdlfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslklfkjdsflksjdflksdfjdlskfjslk\", \"description\":\"Indie muziek\"\n\n}",
 					"options": {
 						"raw": {
 							"language": "json"
